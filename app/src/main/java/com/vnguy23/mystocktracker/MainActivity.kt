@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
             supportActionBar?.let {
                 it.title = when (destination.id) {
                     R.id.settingsFragment -> getString(R.string.settings)
+                    R.id.infoFragment -> getString(R.string.info)
+                    R.id.webFragment -> getString(R.string.web)
                     else -> getString(R.string.app_name)
                 }
             }
@@ -43,6 +45,14 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_settings -> {
                 navHostFragment.navController.navigate(R.id.action_mainFragment_to_settingsFragment)
+                true
+            }
+            R.id.action_info -> {
+                navHostFragment.navController.navigate(R.id.action_mainFragment_to_infoFragment)
+                true
+            }
+            R.id.action_web -> {
+                navHostFragment.navController.navigate(R.id.action_mainFragment_to_webFragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)

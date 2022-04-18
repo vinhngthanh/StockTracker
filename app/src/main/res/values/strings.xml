@@ -7,7 +7,7 @@
     <string name="firstname">firstname</string>
     <string name="lastname">lastname</string>
     <string name="nickname">nickname</string>
-    <string name="comment">comment</string>
+    <string name="comment">comment:</string>
     <string name="stock_deleted_alert">Delete stock: %s?</string>
     <string name="stock_added_alert">Successfully added stock: %s</string>
     <string name="alert">Alert</string>
@@ -18,9 +18,14 @@
     <string name="settings">setting</string>
     <string name="done">done</string>
     <string name="stock_code">stock code</string>
-    <string name="amount">amount</string>
-    <string name="current_price">current price</string>
-    <string name="bought_price">bought price</string>
+    <string name="amount">amount:</string>
+    <string name="current_price">current price:</string>
+    <string name="bought_price">bought price:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_web_fragment">hello_web_fragment</string>
+    <string name="hello_info_fragment">hello_info_fragment</string>
+
+    <string name="info">App Information</string>
+    <string name="web">Web View</string>
 </resources>

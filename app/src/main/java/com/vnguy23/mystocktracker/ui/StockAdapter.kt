@@ -7,10 +7,8 @@ import android.content.res.Resources
 import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getColor
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.internal.ContextUtils.getActivity
 import com.vnguy23.mystocktracker.R
 import com.vnguy23.mystocktracker.database.Stock
 import com.vnguy23.mystocktracker.databinding.StockItemBinding
@@ -36,6 +34,18 @@ class StockAdapter : RecyclerView.Adapter<StockAdapter.StockViewHolder>() {
                     stockCode.setTextColor(getColor(root.context, R.color.green_code))
                 }else{
                     stockCode.setTextColor(getColor(root.context, R.color.yellow_code))
+                }
+
+                if(prefs.getInt("INPUT", 1) == 1){
+                    stockCurrentPriceEdit.setTextColor(getColor(root.context, R.color.blue_input))
+                    stockBoughtPriceEdit.setTextColor(getColor(root.context, R.color.blue_input))
+                    stockCommentEdit.setTextColor(getColor(root.context, R.color.blue_input))
+                    stockAmountEdit.setTextColor(getColor(root.context, R.color.blue_input))
+                }else{
+                    stockCurrentPriceEdit.setTextColor(getColor(root.context, R.color.purple_input))
+                    stockBoughtPriceEdit.setTextColor(getColor(root.context, R.color.purple_input))
+                    stockCommentEdit.setTextColor(getColor(root.context, R.color.purple_input))
+                    stockAmountEdit.setTextColor(getColor(root.context, R.color.purple_input))
                 }
 
 

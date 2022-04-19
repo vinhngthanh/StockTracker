@@ -37,7 +37,9 @@
     <dialog
         android:id="@+id/addStockDialog"
         android:name="com.vnguy23.mystocktracker.ui.AddStockDialog"
-        android:label="@string/add" />
+        android:label="@string/add"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"/>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.vnguy23.mystocktracker.ui.SettingsFragment"

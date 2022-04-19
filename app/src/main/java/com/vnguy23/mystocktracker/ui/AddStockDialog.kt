@@ -1,7 +1,9 @@
 package com.vnguy23.mystocktracker.ui
 
 import android.app.AlertDialog
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +21,7 @@ class AddStockDialog : BottomSheetDialogFragment(), AdapterView.OnItemSelectedLi
     private var _binding: AddFragmentBinding? = null
     private val binding get() = _binding!!
     private var newStock = Stock()
+    private lateinit var prefs: SharedPreferences
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,6 +30,8 @@ class AddStockDialog : BottomSheetDialogFragment(), AdapterView.OnItemSelectedLi
     ): View {
         _binding = AddFragmentBinding.inflate(inflater, container, false)
         binding.apply {
+
+            prefs = PreferenceManager.getDefaultSharedPreferences(binding.root.context)
 
             addButton.setOnClickListener {
                 with(newStock) {
@@ -37,7 +42,9 @@ class AddStockDialog : BottomSheetDialogFragment(), AdapterView.OnItemSelectedLi
                     comment = commentEditText.text.toString()
                 }
                 sharedViewModel.addStock(newStock)
-                stockAddedAlert(newStock)
+                if(prefs.getInt("DIALOG", 1) == 1){
+                    stockAddedAlert(newStock)
+                }
                 dismiss()
             }
             cancelButton.setOnClickListener {

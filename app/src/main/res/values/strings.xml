@@ -42,4 +42,7 @@
     <string name="blue_input">Blue Input</string>
     <string name="green_code">Green Code</string>
     <string name="yellow_code">Yellow Code</string>
+    <string name="dialog_setting">Dialog Setting</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
 </resources>

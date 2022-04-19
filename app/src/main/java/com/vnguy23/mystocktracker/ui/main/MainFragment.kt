@@ -2,7 +2,9 @@ package com.vnguy23.mystocktracker.ui.main
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -20,7 +22,7 @@ import com.vnguy23.mystocktracker.databinding.MainFragmentBinding
 class MainFragment : Fragment() {
 
     private val viewModel: MainViewModel by activityViewModels()
-
+    private lateinit var prefs: SharedPreferences
     private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
     private val stockAdapter = StockAdapter()
@@ -31,7 +33,7 @@ class MainFragment : Fragment() {
     ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
         binding.apply {
-
+            prefs = PreferenceManager.getDefaultSharedPreferences(binding.root.context)
             stockRecycler.run {
                 layoutManager = LinearLayoutManager(context)
                 adapter = stockAdapter
@@ -60,7 +62,11 @@ class MainFragment : Fragment() {
 
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val thisStock = stockAdapter.getStockAtPosition(viewHolder.adapterPosition)
-                    friendDeletedAlert(thisStock)
+                    if(prefs.getInt("DIALOG",1) == 1) {
+                        friendDeletedAlert(thisStock)
+                    }else{
+                        viewModel.deleteStock(thisStock)
+                    }
                 }
             }
 

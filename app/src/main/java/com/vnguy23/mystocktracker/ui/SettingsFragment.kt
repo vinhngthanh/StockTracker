@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.vnguy23.mystocktracker.databinding.FragmentSettingsBinding
-import com.vnguy23.mystocktracker.ui.main.MainViewModel
-import com.vnguy23.mystocktracker.ui.main.SettingViewModel
 
 
 class SettingsFragment : Fragment() {
@@ -25,7 +23,6 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         setHasOptionsMenu(true)
-        val viewModel: SettingViewModel by activityViewModels()
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         binding.apply {
             prefs = PreferenceManager.getDefaultSharedPreferences(binding.root.context)
@@ -47,6 +44,12 @@ class SettingsFragment : Fragment() {
                 BlueInput.isChecked = true
             }else{
                 PurpleInput.isChecked = true
+            }
+
+            if(prefs.getInt("DIALOG", 1) == 1){
+                DialogOn.isChecked = true
+            }else{
+                DialogOff.isChecked = true
             }
 
             CardSettingGroup.setOnCheckedChangeListener { _, _ ->
@@ -73,6 +76,15 @@ class SettingsFragment : Fragment() {
                     editor.apply()
                 } else{
                     editor.putInt("INPUT", 2)
+                    editor.apply()
+                }
+            }
+            DialogSettingGroup.setOnCheckedChangeListener { _, _ ->
+                if(DialogOn.isChecked){
+                    editor.putInt("DIALOG", 1)
+                    editor.apply()
+                } else{
+                    editor.putInt("DIALOG", 2)
                     editor.apply()
                 }
             }

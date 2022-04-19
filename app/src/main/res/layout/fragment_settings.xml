@@ -1,23 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
+    android:background="#eeeeee"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     tools:context=".ui.SettingsFragment">
 
     <Button
-        android:id="@+id/settings_done_button"
+        android:id="@+id/settingsDoneButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/done"
+        android:layout_marginBottom="124dp"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.90999997" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/CardSetting"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/card_color"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@id/top_guideline" />
+
+    <RadioGroup
+        android:id="@+id/CardSettingGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/right_guideline"
+        app:layout_constraintTop_toBottomOf="@id/top_guideline">
+        <RadioButton
+            android:id="@+id/BlueCard"
+            android:background="@color/grey_button"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:text="@string/grey_card">
+        </RadioButton>
+        <RadioButton
+            android:id="@+id/RedCard"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:background="@color/red_button"
+            android:text="@string/red_card"
+            android:textColor="#CFD8DC">
+        </RadioButton>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/CodeSetting"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:text="@string/code_color"
+        app:layout_constraintStart_toEndOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@id/bottom1_guideline" />
+
+    <RadioGroup
+        android:id="@+id/CodeSettingGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bottom1_guideline"
+        app:layout_constraintStart_toStartOf="@id/right_guideline">
+        <RadioButton
+            android:id="@+id/GreenCode"
+            android:background="@color/green_code"
+            android:textColor="@color/black"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:text="@string/green_code">
+        </RadioButton>
+        <RadioButton
+            android:id="@+id/YellowCode"
+            android:background="@color/yellow_code"
+            android:textColor="@color/black"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:text="@string/yellow_code">
+        </RadioButton>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/InputSetting"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:text="@string/input_color"
+        app:layout_constraintStart_toEndOf="@id/left_guideline"
+        app:layout_constraintTop_toBottomOf="@id/bottom3_guideline" />
+
+    <RadioGroup
+        android:id="@+id/InputSettingGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bottom3_guideline"
+        app:layout_constraintStart_toStartOf="@id/right_guideline">
+        <RadioButton
+            android:id="@+id/BlueInput"
+            android:background="@color/blue_input"
+            android:textColor="@color/white"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:text="@string/blue_input">
+        </RadioButton>
+        <RadioButton
+            android:id="@+id/PurpleInput"
+            android:background="@color/purple_input"
+            android:textColor="@color/black"
+            android:layout_width="110dp"
+            android:layout_height="50dp"
+            android:text="@string/purple_input">
+        </RadioButton>
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.09" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.61" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/top_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom1_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom2_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="1"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/bottom3_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

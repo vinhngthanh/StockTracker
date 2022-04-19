@@ -17,7 +17,12 @@
     <color name="light_blue">#2288DD</color>
 
     <color name="grey_button">#7f7f7f</color>
+    <color name="red_button">#861e1e</color>
 
-    <color name="code">#46f807</color>
-    <color name="title">#0b5394</color>
+    <color name="green_code">#46f807</color>
+    <color name="yellow_code">#fcd55f</color>
+
+
+    <color name="blue_input">#0b5394</color>
+    <color name="purple_input">#B121ED</color>
 </resources>

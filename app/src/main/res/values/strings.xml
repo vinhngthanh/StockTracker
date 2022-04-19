@@ -26,6 +26,20 @@
     <string name="hello_web_fragment">hello_web_fragment</string>
     <string name="hello_info_fragment">hello_info_fragment</string>
 
+    <string name="version">Version %s</string>
     <string name="info">App Information</string>
     <string name="web">Web View</string>
+    <string name="textview">TextView</string>
+    <string name="save">save</string>
+    <string name="card_color">card color:</string>
+    <string name="grey_card">grey card</string>
+    <string name="red_card">red card</string>
+    <string name="code_color">Code Color</string>
+    <string name="yellow">Yellow</string>
+    <string name="green">Green</string>
+    <string name="input_color">Input Color</string>
+    <string name="purple_input">Purple Input</string>
+    <string name="blue_input">Blue Input</string>
+    <string name="green_code">Green Code</string>
+    <string name="yellow_code">Yellow Code</string>
 </resources>

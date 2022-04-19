@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.vnguy23.mystocktracker.databinding.FragmentSettingsBinding
+import com.vnguy23.mystocktracker.ui.main.MainViewModel
+import com.vnguy23.mystocktracker.ui.main.SettingViewModel
 
 
 class SettingsFragment : Fragment() {
@@ -22,6 +25,7 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         setHasOptionsMenu(true)
+        val viewModel: SettingViewModel by activityViewModels()
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         binding.apply {
             prefs = PreferenceManager.getDefaultSharedPreferences(binding.root.context)
@@ -75,7 +79,8 @@ class SettingsFragment : Fragment() {
 
 
             settingsDoneButton.setOnClickListener {
-                findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToMainFragment())
+                val action = SettingsFragmentDirections.actionSettingsFragmentToMainFragment()
+                findNavController().navigate(action)
             }
         }
         return binding.root

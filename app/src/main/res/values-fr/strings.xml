@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">MyStockTracker</string>
+
+    <string name="cancel" tools:ignore="ButtonCase">annuler</string>
+    <string name="add">ajouter</string>
+    <string name="title">Titre</string>
+    <string name="comment">commenter:</string>
+    <string name="stock_deleted_alert">Supprimer les actions: %s?</string>
+    <string name="stock_added_alert">Stock ajouté avec succès: %s</string>
+    <string name="alert">Alerte</string>
+    <string name="congrat">Félicitation!!!</string>
+    <string name="ok">OK</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="settings">paramètre</string>
+    <string name="done">fini</string>
+    <string name="stock_code">code boursier</string>
+    <string name="amount">montant:</string>
+    <string name="current_price">prix actuel:</string>
+    <string name="bought_price">prix d\'achat:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="version">Version %s</string>
+    <string name="info">Informations sur l\'application</string>
+    <string name="web">Affichage Web</string>
+    <string name="textview">Affichage</string>
+    <string name="save">sauvegarder</string>
+    <string name="card_color">couleur de la carte:</string>
+    <string name="grey_card">carte grise</string>
+    <string name="red_card">carte rouge</string>
+    <string name="code_color">Code Couleur</string>
+    <string name="yellow">Jaune</string>
+    <string name="green">Verte</string>
+    <string name="input_color">Couleur d\'entrée</string>
+    <string name="purple_input">Entrée violette</string>
+    <string name="blue_input">Entrée bleue</string>
+    <string name="green_code">Code vert</string>
+    <string name="yellow_code">Code jaune</string>
+    <string name="dialog_setting">Paramètre de dialogue</string>
+    <string name="on">Sur</string>
+    <string name="off">Désactivé</string>
+    <string name="url">URL</string>
+    <string name="go">ALLER</string>
+</resources>

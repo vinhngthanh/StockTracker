@@ -14,6 +14,7 @@ class WebFragment : Fragment() {
     private val viewModel: WebviewViewModel by lazy {
         ViewModelProvider(this)[WebviewViewModel::class.java]
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

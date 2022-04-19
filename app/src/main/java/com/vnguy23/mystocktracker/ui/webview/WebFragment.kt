@@ -1,5 +1,6 @@
 package com.vnguy23.mystocktracker.ui.webview
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.*
 import android.webkit.WebViewClient
@@ -57,7 +58,20 @@ class WebFragment : Fragment() {
         _binding = null
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     private fun loadUrl(request: String) {
-        binding.webView.loadUrl(request)
+        binding.webView.apply {
+            loadUrl(request)
+            settings.javaScriptEnabled = true
+            settings.safeBrowsingEnabled = true
+            settings.loadsImagesAutomatically = true
+            settings.allowContentAccess = true
+            settings.mediaPlaybackRequiresUserGesture = false
+            settings.domStorageEnabled = true
+            settings.loadWithOverviewMode = true
+            settings.blockNetworkLoads = false
+            settings.blockNetworkImage = false
+        }
     }
+
 }

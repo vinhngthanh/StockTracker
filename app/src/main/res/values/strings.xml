@@ -4,9 +4,6 @@
     <string name="cancel" tools:ignore="ButtonCase">cancel</string>
     <string name="add">add</string>
     <string name="title">title</string>
-    <string name="firstname">firstname</string>
-    <string name="lastname">lastname</string>
-    <string name="nickname">nickname</string>
     <string name="comment">comment:</string>
     <string name="stock_deleted_alert">Delete stock: %s?</string>
     <string name="stock_added_alert">Successfully added stock: %s</string>

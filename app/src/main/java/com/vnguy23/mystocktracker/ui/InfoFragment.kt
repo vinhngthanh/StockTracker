@@ -7,11 +7,10 @@ import com.vnguy23.mystocktracker.R
 import com.vnguy23.mystocktracker.databinding.FragmentInfoBinding
 
 
-private var _binding: FragmentInfoBinding? = null
-private val binding get() = _binding!!
-
 class InfoFragment : Fragment() {
 
+    private var _binding: FragmentInfoBinding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

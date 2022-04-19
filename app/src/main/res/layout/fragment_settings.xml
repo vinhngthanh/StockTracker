@@ -200,4 +200,5 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,4 +45,6 @@
     <string name="dialog_setting">Dialog Setting</string>
     <string name="on">On</string>
     <string name="off">Off</string>
+    <string name="url">URL</string>
+    <string name="go">GO</string>
 </resources>

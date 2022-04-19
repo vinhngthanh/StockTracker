@@ -60,7 +60,7 @@
     </fragment>
     <fragment
         android:id="@+id/webFragment"
-        android:name="com.vnguy23.mystocktracker.ui.WebFragment"
+        android:name="com.vnguy23.mystocktracker.ui.webview.WebFragment"
         android:label="fragment_web"
         tools:layout="@layout/fragment_web" >
         <action

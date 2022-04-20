@@ -24,7 +24,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/stock_code"
-            android:inputType="textPersonName" />
+            android:inputType="textCapCharacters" />
 
         <EditText
             android:id="@+id/amount_editText"
@@ -33,7 +33,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/amount"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/current_price_editText"
@@ -42,7 +42,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/current_price"
-            android:inputType="textPersonName" />
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/bought_price_editText"
@@ -51,7 +51,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/bought_price"
-            android:inputType="textLongMessage|textMultiLine"
+            android:inputType="number"
             android:lines="1"
             android:scrollHorizontally="false" />
 

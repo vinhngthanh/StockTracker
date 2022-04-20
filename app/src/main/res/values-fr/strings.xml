@@ -41,4 +41,12 @@
     <string name="off">Désactivé</string>
     <string name="url">URL</string>
     <string name="go">ALLER</string>
+    <string name="auto_comment">Commentaire automatique</string>
+
+    <string name="dollar">$</string>
+
+    <string name="gain">Your gain:</string>
+    <string name="loss">Your loss:</string>
+    <string name="draw">Draw:</string>
+    <string name="sign">-</string>
 </resources>

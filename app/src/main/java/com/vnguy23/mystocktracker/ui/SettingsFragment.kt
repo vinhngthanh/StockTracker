@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.vnguy23.mystocktracker.databinding.FragmentSettingsBinding
 
@@ -52,6 +51,12 @@ class SettingsFragment : Fragment() {
                 DialogOff.isChecked = true
             }
 
+            if(prefs.getInt("COMMENT", 1) == 1){
+                AutoCommentOn.isChecked = true
+            }else{
+                AutoCommentOff.isChecked = true
+            }
+
             CardSettingGroup.setOnCheckedChangeListener { _, _ ->
                 if(GreyCard.isChecked){
                     editor.putInt("CARD", 1)
@@ -88,7 +93,15 @@ class SettingsFragment : Fragment() {
                     editor.apply()
                 }
             }
-
+            CommentSettingGroup.setOnCheckedChangeListener { _, _ ->
+                if(AutoCommentOn.isChecked){
+                    editor.putInt("COMMENT", 1)
+                    editor.apply()
+                } else{
+                    editor.putInt("COMMENT", 2)
+                    editor.apply()
+                }
+            }
 
             settingsDoneButton.setOnClickListener {
                 val action = SettingsFragmentDirections.actionSettingsFragmentToMainFragment()

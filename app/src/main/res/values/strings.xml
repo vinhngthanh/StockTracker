@@ -40,4 +40,11 @@
     <string name="off">Off</string>
     <string name="url">URL</string>
     <string name="go">GO</string>
+    <string name="auto_comment">Auto Comment</string>
+    <string name="dollar">$</string>
+
+    <string name="gain">Your gain:</string>
+    <string name="loss">Your loss:</string>
+    <string name="draw">No profit:</string>
+    <string name="sign">-</string>
 </resources>

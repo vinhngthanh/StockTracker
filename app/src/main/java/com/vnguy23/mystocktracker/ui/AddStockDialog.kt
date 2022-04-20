@@ -14,6 +14,7 @@ import com.vnguy23.mystocktracker.R
 import com.vnguy23.mystocktracker.database.Stock
 import com.vnguy23.mystocktracker.databinding.AddFragmentBinding
 import com.vnguy23.mystocktracker.ui.main.MainViewModel
+import java.util.*
 
 class AddStockDialog : BottomSheetDialogFragment(), AdapterView.OnItemSelectedListener {
 
@@ -32,14 +33,38 @@ class AddStockDialog : BottomSheetDialogFragment(), AdapterView.OnItemSelectedLi
         binding.apply {
 
             prefs = PreferenceManager.getDefaultSharedPreferences(binding.root.context)
+            if(prefs.getInt("COMMENT", 1) == 2){
+                commentEditText.isFocusableInTouchMode = true
+                commentEditText.isFocusable = true
+                commentEditText.isEnabled = true
+            }else{
+                commentEditText.isFocusableInTouchMode = false
+                commentEditText.isFocusable = false
+                commentEditText.isEnabled = false
+            }
 
             addButton.setOnClickListener {
                 with(newStock) {
-                    stock_code = stockCodeEditText.text.toString()
+                    stock_code = stockCodeEditText.text.toString().uppercase(Locale.getDefault())
                     amount = amountEditText.text.toString()
-                    current_price = currentPriceEditText.text.toString()
-                    bought_price = boughtPriceEditText.text.toString()
-                    comment = commentEditText.text.toString()
+                    current_price = getString(R.string.dollar) + currentPriceEditText.text.toString()
+                    bought_price = getString(R.string.dollar) + boughtPriceEditText.text.toString()
+                    if(prefs.getInt("COMMENT", 1) == 2){
+                        comment = commentEditText.text.toString()
+                    }else{
+                        val curr_price = Integer.parseInt(currentPriceEditText.text.toString())
+                        val bou_price = Integer.parseInt(boughtPriceEditText.text.toString())
+                        val amt = Integer.parseInt(amountEditText.text.toString())
+                        val profit = (curr_price - bou_price) * amt
+
+                        if(profit > 0){
+                            comment = getString(R.string.gain) + " " + getString(R.string.dollar) + profit.toString()
+                        }else if(profit < 0){
+                            comment = getString(R.string.loss) + " "  + getString(R.string.sign) + getString(R.string.dollar) + (profit*(-1)).toString()
+                        }else{
+                            comment = getString(R.string.draw) + " "  + getString(R.string.dollar) + profit.toString()
+                        }
+                    }
                 }
                 sharedViewModel.addStock(newStock)
                 if(prefs.getInt("DIALOG", 1) == 1){

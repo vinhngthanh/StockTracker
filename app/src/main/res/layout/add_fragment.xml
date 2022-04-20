@@ -42,7 +42,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/current_price"
-            android:inputType="number" />
+            android:inputType="numberDecimal" />
 
         <EditText
             android:id="@+id/bought_price_editText"
@@ -51,7 +51,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/bought_price"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:lines="1"
             android:scrollHorizontally="false" />
 

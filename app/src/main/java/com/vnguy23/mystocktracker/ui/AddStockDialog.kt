@@ -52,8 +52,8 @@ class AddStockDialog : BottomSheetDialogFragment(), AdapterView.OnItemSelectedLi
                     if(prefs.getInt("COMMENT", 1) == 2){
                         comment = commentEditText.text.toString()
                     }else{
-                        val currPrice = Integer.parseInt(currentPriceEditText.text.toString())
-                        val bouPrice = Integer.parseInt(boughtPriceEditText.text.toString())
+                        val currPrice = currentPriceEditText.text.toString().toDouble()
+                        val bouPrice = boughtPriceEditText.text.toString().toDouble()
                         val amt = Integer.parseInt(amountEditText.text.toString())
                         val profit = (currPrice - bouPrice) * amt
 

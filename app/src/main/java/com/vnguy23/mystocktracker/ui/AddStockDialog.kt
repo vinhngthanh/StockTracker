@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.vnguy23.mystocktracker.R
@@ -44,33 +45,39 @@ class AddStockDialog : BottomSheetDialogFragment(), AdapterView.OnItemSelectedLi
             }
 
             addButton.setOnClickListener {
-                with(newStock) {
-                    stock_code = stockCodeEditText.text.toString().uppercase(Locale.getDefault())
-                    amount = amountEditText.text.toString()
-                    current_price = getString(R.string.dollar) + currentPriceEditText.text.toString()
-                    bought_price = getString(R.string.dollar) + boughtPriceEditText.text.toString()
-                    if(prefs.getInt("COMMENT", 1) == 2){
-                        comment = commentEditText.text.toString()
-                    }else{
-                        val currPrice = currentPriceEditText.text.toString().toDouble()
-                        val bouPrice = boughtPriceEditText.text.toString().toDouble()
-                        val amt = Integer.parseInt(amountEditText.text.toString())
-                        val profit = (currPrice - bouPrice) * amt
-
-                        if(profit > 0){
-                            comment = getString(R.string.gain) + " " + getString(R.string.dollar) + profit.toString()
-                        }else if(profit < 0){
-                            comment = getString(R.string.loss) + " "  + getString(R.string.sign) + getString(R.string.dollar) + (profit*(-1)).toString()
+                if(stockCodeEditText.text.isNotEmpty() && amountEditText.text.isNotEmpty()
+                    && currentPriceEditText.text.isNotEmpty() && boughtPriceEditText.text.isNotEmpty()){
+                    with(newStock) {
+                        stock_code = stockCodeEditText.text.toString().uppercase(Locale.getDefault())
+                        amount = amountEditText.text.toString()
+                        current_price = getString(R.string.dollar) + currentPriceEditText.text.toString()
+                        bought_price = getString(R.string.dollar) + boughtPriceEditText.text.toString()
+                        if(prefs.getInt("COMMENT", 1) == 2){
+                            comment = commentEditText.text.toString()
                         }else{
-                            comment = getString(R.string.draw) + " "  + getString(R.string.dollar) + profit.toString()
+                            val currPrice = currentPriceEditText.text.toString().toDouble()
+                            val bouPrice = boughtPriceEditText.text.toString().toDouble()
+                            val amt = Integer.parseInt(amountEditText.text.toString())
+                            val profit = (currPrice - bouPrice) * amt
+
+                            if(profit > 0){
+                                comment = getString(R.string.gain) + " " + getString(R.string.dollar) + profit.toString()
+                            }else if(profit < 0){
+                                comment = getString(R.string.loss) + " "  + getString(R.string.sign) + getString(R.string.dollar) + (profit*(-1)).toString()
+                            }else{
+                                comment = getString(R.string.draw) + " "  + getString(R.string.dollar) + profit.toString()
+                            }
                         }
                     }
+                    sharedViewModel.addStock(newStock)
+                    if(prefs.getInt("DIALOG", 1) == 1){
+                        stockAddedAlert(newStock)
+                    }
+                    dismiss()
+                }else{
+                    dismiss()
+                    Toast.makeText(context, "Please fill all Fields", Toast.LENGTH_SHORT).show()
                 }
-                sharedViewModel.addStock(newStock)
-                if(prefs.getInt("DIALOG", 1) == 1){
-                    stockAddedAlert(newStock)
-                }
-                dismiss()
             }
             cancelButton.setOnClickListener {
                 dismiss()
